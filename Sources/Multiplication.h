@@ -1,0 +1,14 @@
+//
+// Created by francois on 16/02/17.
+//
+
+#ifndef GRAMMAIRELANGAGE_MULTIPLICATION_H
+#define GRAMMAIRELANGAGE_MULTIPLICATION_H
+
+
+class Multiplication {
+
+};
+
+
+#endif //GRAMMAIRELANGAGE_MULTIPLICATION_H
