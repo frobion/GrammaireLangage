@@ -35,6 +35,11 @@ Thumbs.db
 /.qmake.cache
 /.qmake.stash
 
+#CLion generated files
+.idea/*
+cmake-build-debug/*
+CMakeLists.txt
+
 # qtcreator generated files
 *.pro.user*
 
