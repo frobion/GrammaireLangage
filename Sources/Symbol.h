@@ -5,9 +5,18 @@
 #ifndef GRAMMAIRELANGAGE_SYMBOLE_H
 #define GRAMMAIRELANGAGE_SYMBOLE_H
 
+class Symbol {
 
-class Symbole {
+public:
+    Symbol(); // Declared but not defined, to avoid any used
+    Symbol(int id);
+    virtual ~Symbol();
 
+    operator int() const;
+    virtual void print() const = 0;
+
+protected:
+    int id;
 };
 
 

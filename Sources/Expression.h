@@ -6,7 +6,9 @@
 #define GRAMMAIRELANGAGE_EXPRESSION_H
 
 
-class Expression {
+#include "Symbol.h"
+
+class Expression : Symbol {
 
 };
 

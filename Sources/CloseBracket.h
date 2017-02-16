@@ -6,7 +6,9 @@
 #define GRAMMAIRELANGAGE_CLOSEBRACKET_H
 
 
-class CloseBracket {
+#include "Symbol.h"
+
+class CloseBracket : Symbol{
 
 };
 

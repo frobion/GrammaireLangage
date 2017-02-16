@@ -6,7 +6,9 @@
 #define GRAMMAIRELANGAGE_PLUS_H
 
 
-class Plus {
+#include "Symbol.h"
+
+class Plus : Symbol{
 
 };
 

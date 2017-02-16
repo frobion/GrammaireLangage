@@ -6,7 +6,9 @@
 #define GRAMMAIRELANGAGE_MULTIPLICATION_H
 
 
-class Multiplication {
+#include "Symbol.h"
+
+class Multiplication : Symbol{
 
 };
 

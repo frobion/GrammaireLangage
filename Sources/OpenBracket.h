@@ -6,7 +6,9 @@
 #define GRAMMAIRELANGAGE_OPENBRACKET_H
 
 
-class OpenBracket {
+#include "Symbol.h"
+
+class OpenBracket : Symbol {
 
 };
 

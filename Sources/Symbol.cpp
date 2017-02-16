@@ -3,3 +3,12 @@
 //
 
 #include "Symbol.h"
+
+Symbol::Symbol(int id) : id(id)
+{}
+
+Symbol::~Symbol() {}
+
+Symbol::operator int() const {
+    return id;
+}
