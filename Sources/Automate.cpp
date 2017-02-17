@@ -6,9 +6,14 @@
 #include <cstdlib>
 #include "Automate.h"
 #include "Config.h"
+#include "State0.h"
+#include "Number.h"
+#include "Expression.h"
 
 Automate::Automate()
 {
+    std::shared_ptr<State> state = std::make_shared<State0>();
+    states.push(state);
 }
 
 Automate::~Automate()
@@ -19,7 +24,7 @@ void Automate::lecture()
 {
     evaluationFinished = false;
 
-    while(evaluationFinished == false)
+    while(!evaluationFinished)
     {
         std::shared_ptr<Symbol> nextSymbole;
         nextSymbole = lexer.get();
@@ -76,7 +81,8 @@ void Automate::pushSymbol(std::shared_ptr<Symbol> symbol)
 void Automate::accept()
 {
     evaluationFinished = true;
-    std::cout << "expression accepted, value is : " << std::endl;
+    std::shared_ptr<Expression> expression = std::dynamic_pointer_cast<Expression>(symbols.top());
+    std::cout << "expression accepted, value is : " << expression->getValue() << std::endl;
 }
 
 void Automate::refuse()
@@ -95,4 +101,24 @@ void Automate::nextTransition()
 std::shared_ptr<Symbol> Automate::peekSymbol()
 {
     return lexer.peek();
+}
+
+void Automate::printState() const
+{
+    std::cout << "=====  PRINT STATE STACK  ======" << std::endl;
+    for (std::stack<std::shared_ptr<State>> dump = states; !dump.empty(); dump.pop())
+    {
+        dump.top()->printState();
+    }
+    std::cout << "====  END PRINT STATE STACK ====" << std::endl;
+}
+
+void Automate::printSymbole() const
+{
+    std::cout << "=====  PRINT SYMBOL STACK  ======" << std::endl;
+    for (std::stack<std::shared_ptr<Symbol>> dump = symbols; !dump.empty(); dump.pop())
+    {
+        dump.top()->print();
+    }
+    std::cout << "====  END PRINT SYMBOL STACK ====" << std::endl;
 }

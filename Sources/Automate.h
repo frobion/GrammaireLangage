@@ -32,6 +32,10 @@ public:
 
     std::shared_ptr<Symbol> peekSymbol();
 
+
+    void printState() const;
+    void printSymbole() const;
+
 private:
     bool evaluationFinished;
     Lexer lexer;

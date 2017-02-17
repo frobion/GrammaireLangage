@@ -48,3 +48,8 @@ void State3::getIntoState(Automate &automate)
     }
 }
 
+void State3::printState()
+{
+    std::cout << "State3" << std::endl;
+}
+

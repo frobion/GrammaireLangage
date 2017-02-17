@@ -14,7 +14,7 @@ public:
 
     operator int() const;
     int getId() const;
-    //virtual void print() const;
+    virtual void print() const;
 
 protected:
     int id;

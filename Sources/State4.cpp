@@ -23,20 +23,25 @@ void State4::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
     switch (*symbol)
     {
         case ID_NUMBER:
-            automate.pushState(std::make_shared<State3>());
             automate.pushSymbol(symbol);
+            automate.pushState(std::make_shared<State3>());
             break;
         case ID_EXPRESSION:
-            automate.pushState(std::make_shared<State7>());
             automate.pushSymbol(symbol);
+            automate.pushState(std::make_shared<State7>());
             break;
         case ID_OPEN_BRACKET:
-            automate.pushState(std::make_shared<State2>());
             automate.pushSymbol(symbol);
+            automate.pushState(std::make_shared<State2>());
             break;
         default:
             automate.refuse();
             std::cerr << "In State4::transition, unexpected value of symbol : " << symbol->getId() << std::endl;
     }
 
+}
+
+void State4::printState()
+{
+    std::cout << "State4" << std::endl;
 }

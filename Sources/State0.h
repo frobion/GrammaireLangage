@@ -14,6 +14,8 @@ public:
     virtual ~State0();
 
     virtual void transition(Automate & automate, std::shared_ptr<Symbol> symbol);
+
+    virtual void printState();
 };
 
 

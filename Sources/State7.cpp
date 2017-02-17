@@ -24,8 +24,8 @@ void State7::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
     switch (*symbol)
     {
         case ID_MULTIPLICATION:
-            automate.pushState(std::make_shared<State5>());
             automate.pushSymbol(symbol);
+            automate.pushState(std::make_shared<State5>());
             break;
         default:
             std::cerr << "In State7::transition, unexpected value of symbol : " << symbol->getId() << std::endl;
@@ -59,4 +59,9 @@ void State7::getIntoState(Automate &automate)
             automate.refuse();
             std::cerr << "In State7::transition, unexpected value of symbol : " << nextSymbol->getId() << std::endl;
     }
+}
+
+void State7::printState()
+{
+    std::cout << "State7" << std::endl;
 }

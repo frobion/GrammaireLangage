@@ -50,3 +50,8 @@ void State8::getIntoState(Automate &automate)
             std::cerr << "In State8::transition, unexpected value of symbol : " << nextSymbol->getId() << std::endl;
     }
 }
+
+void State8::printState()
+{
+    std::cout << "State8" << std::endl;
+}

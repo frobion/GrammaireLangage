@@ -43,3 +43,8 @@ void State9::getIntoState(Automate &automate)
             automate.refuse();
     }
 }
+
+void State9::printState()
+{
+    std::cout << "State9" << std::endl;
+}

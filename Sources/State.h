@@ -22,6 +22,8 @@ public:
 
     virtual void transition(Automate & automate, std::shared_ptr<Symbol> symbol) = 0;
     virtual void getIntoState(Automate & automate);
+
+    virtual void printState() = 0;
 };
 
 
