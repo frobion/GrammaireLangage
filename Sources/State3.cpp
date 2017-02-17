@@ -20,6 +20,9 @@ State3::~State3()
 
 bool State3::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
 {
+
+    std::shared_ptr<Expression> expression;
+    std::shared_ptr<Number> number;
     switch (*symbol)
     {
         case ID_PLUS:
@@ -27,10 +30,14 @@ bool State3::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
         case ID_CLOSE_BRACKET:
         case ID_EOF:
             automate.popState(1);
-            std::shared_ptr<Number> number = std::dynamic_pointer_cast<Number>(automate.popSymbol());
-            std::shared_ptr<Expression> expression = std::make_shared<Expression>(number->getValue());
+            number = std::dynamic_pointer_cast<Number>(automate.popSymbol());
+            expression = std::make_shared<Expression>(number->getValue());
             automate.pushSymbol(expression);
-
+            automate.nextTransition();
             break;
+        default:
+            std::cerr << "In State3::transition, unexpected value of symbol : " << symbol->getId() << std::endl;
     }
+
 }
+
