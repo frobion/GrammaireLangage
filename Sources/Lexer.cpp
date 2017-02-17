@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 
 #include "Lexer.h"
 #include "Config.h"
@@ -44,9 +45,13 @@ int Lexer::getCharType(char c) const
     {
         return NUMBER;
     }
-    else if(c == EOF)
+    else if(c == EOF || c == '\n')
     {
         return END;
+    }
+    else
+    {
+        return UNKNOWN;
     }
 }
 
@@ -112,6 +117,7 @@ void Lexer::getNextSymbol()
         return;
     }
     std::cerr << "Unknow symbole on word, set to EOF" << std::endl;
+    std::cerr << "word is : \"" << word << "\"" << std::endl;
     currentSymbol = std::make_shared<Symbol>(ID_EOF);
     return;
 }
