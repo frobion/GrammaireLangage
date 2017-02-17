@@ -23,8 +23,10 @@ public:
     void lecture();
     void popState(int number);
     void pushState(std::shared_ptr<State> state);
+    std::shared_ptr<Symbol> popSymbol();
     void popSymbol(int number);
     void pushSymbol(std::shared_ptr<Symbol> symbol);
+    void accept();
 
 private:
     Lexer lexer;

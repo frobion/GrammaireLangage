@@ -47,11 +47,23 @@ void Automate::popSymbol(int number)
 
     for (int i = 0; i < number; i++)
     {
-        symbols.pop();
+       symbols.pop();
     }
+}
+
+std::shared_ptr<Symbol> Automate::popSymbol()
+{
+    std::shared_ptr<Symbol> result = symbols.top();
+    symbols.pop();
+    return result;
 }
 
 void Automate::pushSymbol(std::shared_ptr<Symbol> symbol)
 {
     symbols.push(symbol);
+}
+
+void Automate::accept()
+{
+    std::cout << "expression accepted, value is : " << std::endl;
 }

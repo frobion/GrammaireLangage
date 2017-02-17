@@ -12,3 +12,8 @@ Symbol::~Symbol() {}
 Symbol::operator int() const {
     return id;
 }
+
+int Symbol::getId() const
+{
+    return id;
+}

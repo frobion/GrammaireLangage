@@ -7,13 +7,16 @@
 #include "Config.h"
 #include "State1.h"
 #include "State2.h"
+#include "State3.h"
 
 bool State0::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
 {
     switch (*symbol)
     {
-        case ID_NUMBER: // Idem than expression
-            
+        case ID_NUMBER:
+            automate.pushState(std::make_shared<State3>());
+            automate.pushSymbol(symbol);
+            break;
         case ID_EXPRESSION:
             automate.pushState(std::make_shared<State1>());
             automate.pushSymbol(symbol);
@@ -23,6 +26,6 @@ bool State0::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
             automate.pushSymbol(symbol);
             break;
         default:
-            std::cerr << "In State0::transition, unexpected value of symbol : " << (int) symbol << std::endl;
+            std::cerr << "In State0::transition, unexpected value of symbol : " << symbol->getId() << std::endl;
     }
 }
