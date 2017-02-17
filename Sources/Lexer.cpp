@@ -1,5 +1,6 @@
 #include "Lexer.h"
 #include <iostream>
+#include "Config.h"
 
 Lexer::Lexer()
 {
@@ -68,12 +69,36 @@ std::string Lexer::nextWord()
     return word;
 }
 
-void Lexer::getNextSymbole()
+void Lexer::getNextSymbol()
 {
     std::string word;
 
     word = nextWord();
 
+    if(word.size() == 0)
+    {
+        currentSymbol = std::make_shared(ID_EOF);
+        return;
+    }
+    switch (getCharType(word.at(0))) {
+    case PLUS:
+        currentSymbol = std::make_shared(ID_PLUS);
+        return;
+    case MULT:
+        currentSymbol = std::make_shared(ID_MULTIPLICATION);
+        return;
+    case OPEN:
+        currentSymbol = std::make_shared(ID_OPENTBRACKET);
+        return;
+    case CLOSE:
+        currentSymbol = std::make_shared(ID_CLOSEBRACKET);
+        return;
+    case END:
+        currentSymbol = std::make_shared(ID_EOF);
+        return;
+    default:
+        break;
+    }
 
 }
 

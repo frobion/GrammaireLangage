@@ -15,11 +15,11 @@ public:
     Lexer();
     ~Lexer();
 
-    Symbol get();
-    Symbol peek();
+    std::shared_ptr<Symbol> get();
+    std::shared_ptr<Symbol> peek();
 
 protected:
-    void getNextSymbole();
+    void getNextSymbol();
     std::string nextWord();
     int getCharType(char c) const;
 
