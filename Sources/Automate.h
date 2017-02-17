@@ -27,6 +27,7 @@ public:
     void popSymbol(int number);
     void pushSymbol(std::shared_ptr<Symbol> symbol);
     void accept();
+    void nextTransition();
 
 private:
     Lexer lexer;
