@@ -18,7 +18,7 @@ State6::~State6()
 {
 
 }
-bool State6::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
+void State6::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
 {
     switch (*symbol)
     {

@@ -9,7 +9,7 @@
 #include "State2.h"
 #include "State3.h"
 
-bool State0::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
+void State0::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
 {
     switch (*symbol)
     {

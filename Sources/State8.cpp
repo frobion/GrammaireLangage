@@ -18,7 +18,7 @@ State8::~State8()
 
 }
 
-bool State8::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
+void State8::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
 {
     std::shared_ptr<Expression> expression1;
     std::shared_ptr<Expression> expression2;
