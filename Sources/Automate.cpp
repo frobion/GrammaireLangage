@@ -44,6 +44,7 @@ void Automate::popState(int number)
 void Automate::pushState(std::shared_ptr<State> state)
 {
     states.push(state);
+    state->getIntoState(*this);
 }
 
 void Automate::popSymbol(int number)
@@ -81,7 +82,7 @@ void Automate::accept()
 void Automate::refuse()
 {
     evaluationFinished = true;
-    while(*(lexer.get()) == ID_EOF)
+    while(*(lexer.get()) == ID_EOF);
 }
 
 void Automate::nextTransition()
@@ -89,4 +90,9 @@ void Automate::nextTransition()
     std::shared_ptr<Symbol> symbol = symbols.top();
     symbols.pop();
     states.top()->transition(*this, symbol);
+}
+
+std::shared_ptr<Symbol> Automate::peekSymbol()
+{
+    return lexer.peek();
 }

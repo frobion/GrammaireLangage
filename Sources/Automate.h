@@ -30,6 +30,8 @@ public:
     void refuse();
     void nextTransition();
 
+    std::shared_ptr<Symbol> peekSymbol();
+
 private:
     bool evaluationFinished;
     Lexer lexer;
