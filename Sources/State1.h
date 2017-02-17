@@ -8,12 +8,13 @@
 
 #include "State.h"
 
-class State1 : State{
+class State1 : public State{
 public:
     State1();
     virtual ~State1();
 
     virtual bool transition(Automate & automate, std::shared_ptr<Symbol> symbol);
+
 };
 
 

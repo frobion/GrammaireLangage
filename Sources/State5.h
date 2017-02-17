@@ -8,7 +8,7 @@
 
 #include "State.h"
 
-class State5 : State{
+class State5 : public State{
 public:
     State5();
     virtual ~State5();
