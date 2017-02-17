@@ -8,8 +8,16 @@
 
 #include "Symbol.h"
 
-class Number : Symbol{
+class Number : public Symbol{
 
+public:
+    Number(); //disable default constructor
+    Number(int value);
+
+    int getValue() const;
+
+private:
+    int numberValue;
 };
 
 
