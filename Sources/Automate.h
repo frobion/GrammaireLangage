@@ -29,6 +29,8 @@ public:
     void accept();
     void nextTransition();
 
+    std::shared_ptr<Symbol> peekSymbol();
+
 private:
     Lexer lexer;
     std::stack<std::shared_ptr<Symbol>> symbols;

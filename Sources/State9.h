@@ -14,6 +14,7 @@ public:
     virtual ~State9();
 
     virtual void transition(Automate & automate, std::shared_ptr<Symbol> nextSymbol);
+    virtual void getIntoState(Automate & automate);
 
 private:
     void r4reduction(Automate &automate, std::shared_ptr<Symbol> nextSymbol);

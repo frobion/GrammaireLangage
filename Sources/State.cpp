@@ -13,3 +13,8 @@ State::~State()
 {
 
 }
+
+void State::getIntoState(Automate & automate)
+{
+
+}
