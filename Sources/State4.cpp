@@ -12,7 +12,7 @@ State4::~State4()
 {
 
 }
-bool State4::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
+void State4::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
 {
 
 }

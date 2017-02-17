@@ -12,7 +12,7 @@ State5::~State5()
 {
 
 }
-bool State5::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
+void State5::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
 {
 
 }

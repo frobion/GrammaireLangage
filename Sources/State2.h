@@ -13,7 +13,7 @@ public:
     State2();
     virtual ~State2();
 
-    virtual bool transition(Automate & automate, std::shared_ptr<Symbol> symbol);
+    virtual void transition(Automate & automate, std::shared_ptr<Symbol> symbol);
 };
 
 

@@ -13,7 +13,7 @@ public:
     State9();
     virtual ~State9();
 
-    virtual bool transition(Automate & automate, std::shared_ptr<Symbol> nextSymbol);
+    virtual void transition(Automate & automate, std::shared_ptr<Symbol> nextSymbol);
 
 private:
     void r4reduction(Automate &automate, std::shared_ptr<Symbol> nextSymbol);
