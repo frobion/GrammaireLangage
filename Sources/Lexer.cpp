@@ -114,7 +114,6 @@ void Lexer::getNextSymbol()
     std::cerr << "Unknow symbole on word, set to EOF" << std::endl;
     currentSymbol = std::make_shared<Symbol>(ID_EOF);
     return;
-
 }
 
 std::shared_ptr<Symbol> Lexer::peek()

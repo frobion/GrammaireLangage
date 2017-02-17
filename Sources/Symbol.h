@@ -13,7 +13,7 @@ public:
     virtual ~Symbol();
 
     operator int() const;
-    virtual void print() const;
+    //virtual void print() const;
 
 protected:
     int id;

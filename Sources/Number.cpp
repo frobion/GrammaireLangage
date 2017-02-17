@@ -1,11 +1,12 @@
 #include "Number.h"
+#include "Config.h"
 
 Number::Number(int value): Symbol(ID_NUMBER),numberValue(value)
 {
 
 }
 
-Number::getValue() const
+int Number::getValue() const
 {
     return numberValue;
 }

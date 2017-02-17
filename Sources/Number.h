@@ -8,7 +8,7 @@
 
 #include "Symbol.h"
 
-class Number : Symbol{
+class Number : public Symbol{
 
 public:
     Number(); //disable default constructor
