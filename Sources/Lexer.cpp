@@ -1,6 +1,16 @@
-#include "Lexer.h"
 #include <iostream>
+
+#include "Lexer.h"
 #include "Config.h"
+#include "Number.h"
+
+const int PLUS    = 1;
+const int MULT    = 2;
+const int OPEN    = 3;
+const int CLOSE   = 4;
+const int NUMBER  = 5;
+const int END     = 6;
+const int UNKNOWN = -1;
 
 Lexer::Lexer()
 {
@@ -55,14 +65,14 @@ std::string Lexer::nextWord()
 
     while(getCharType(currentChar) == NUMBER)
     {
-        word.append(currentChar);
+        word.push_back(currentChar);
         std::cin.get();
         currentChar = std::cin.peek();
     }
 
     if(word == "")
     {
-        word.append(currentChar);
+        word.push_back(currentChar);
         std::cin.get();
     }
 
@@ -77,31 +87,50 @@ void Lexer::getNextSymbol()
 
     if(word.size() == 0)
     {
-        currentSymbol = std::make_shared(ID_EOF);
+        currentSymbol = std::make_shared<Symbol>(ID_EOF);
         return;
     }
     switch (getCharType(word.at(0))) {
     case PLUS:
-        currentSymbol = std::make_shared(ID_PLUS);
+        currentSymbol = std::make_shared<Symbol>(ID_PLUS);
         return;
     case MULT:
-        currentSymbol = std::make_shared(ID_MULTIPLICATION);
+        currentSymbol = std::make_shared<Symbol>(ID_MULTIPLICATION);
         return;
     case OPEN:
-        currentSymbol = std::make_shared(ID_OPENTBRACKET);
+        currentSymbol = std::make_shared<Symbol>(ID_OPEN_BRACKET);
         return;
     case CLOSE:
-        currentSymbol = std::make_shared(ID_CLOSEBRACKET);
+        currentSymbol = std::make_shared<Symbol>(ID_CLOSE_BRACKET);
         return;
     case END:
-        currentSymbol = std::make_shared(ID_EOF);
+        currentSymbol = std::make_shared<Symbol>(ID_EOF);
         return;
-    default:
-        break;
+    case NUMBER:
+        int value = std::atoi(word.c_str());
+        currentSymbol = std::make_shared<Number>(value);
+        return;
     }
+    std::cerr << "Unknow symbole on word, set to EOF" << std::endl;
+    currentSymbol = std::make_shared<Symbol>(ID_EOF);
+    return;
 
 }
 
+std::shared_ptr<Symbol> Lexer::peek()
+{
+    if(currentSymbol == nullptr)
+    {
+        getNextSymbol();
+    }
+    return currentSymbol;
+}
+
+std::shared_ptr<Symbol> Lexer::get()
+{
+    getNextSymbol();
+    return currentSymbol;
+}
 
 
 

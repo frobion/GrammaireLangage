@@ -10,6 +10,14 @@
 
 class Number : Symbol{
 
+public:
+    Number(); //disable default constructor
+    Number(int value);
+
+    int getValue() const;
+
+private:
+    int numberValue;
 };
 
 

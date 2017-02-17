@@ -7,6 +7,7 @@
 
 #include <string>
 #include <memory>
+
 #include "Symbol.h"
 
 class Lexer {
@@ -25,14 +26,6 @@ protected:
 
 private:
     std::shared_ptr<Symbol> currentSymbol;
-
-    const int PLUS    = 1;
-    const int MULT    = 2;
-    const int OPEN    = 3;
-    const int CLOSE   = 4;
-    const int NUMBER  = 5;
-    const int END     = 6;
-    const int UNKNOWN = -1;
 };
 
 

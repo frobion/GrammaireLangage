@@ -1,5 +1,11 @@
-//
-// Created by francois on 17/02/17.
-//
-
 #include "Number.h"
+
+Number::Number(int value): Symbol(ID_NUMBER),numberValue(value)
+{
+
+}
+
+Number::getValue() const
+{
+    return numberValue;
+}
