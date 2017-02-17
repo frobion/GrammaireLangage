@@ -3,6 +3,15 @@
 //
 
 #include "State4.h"
+State4::State4()
+{
+
+}
+
+State4::~State4()
+{
+
+}
 bool State4::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
 {
 

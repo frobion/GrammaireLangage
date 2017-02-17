@@ -8,7 +8,17 @@
 
 #include "Symbol.h"
 
-class Expression : Symbol {
+class Expression : public Symbol {
+public:
+    Expression(); // disable default constructor
+    Expression(int value);
+    virtual ~Expression();
+
+    int getValue() const;
+
+private:
+
+    int value;
 
 };
 
