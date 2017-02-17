@@ -6,8 +6,14 @@
 #define GRAMMAIRELANGAGE_STATE4_H
 
 
-class State4 {
+#include "State.h"
 
+class State4 : State{
+public:
+    State4();
+    virtual ~State4();
+
+    virtual bool transition(Automate & automate, std::shared_ptr<Symbol> symbol);
 };
 
 

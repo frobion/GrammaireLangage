@@ -7,8 +7,20 @@
 #define GRAMMAIRELANGAGE_STATE_H
 
 
+#include <memory>
+#include <bits/shared_ptr.h>
+#include "Automate.h"
+#include "Symbol.h"
+
+class Automate;
+
 class State {
 
+public:
+    State();
+    virtual ~State();
+
+    virtual bool transition(Automate & automate, std::shared_ptr<Symbol> symbol) = 0;
 };
 
 
