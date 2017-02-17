@@ -67,3 +67,10 @@ void Automate::accept()
 {
     std::cout << "expression accepted, value is : " << std::endl;
 }
+
+void Automate::nextTransition()
+{
+    std::shared_ptr<Symbol> symbol = symbols.top();
+    symbols.pop();
+    states.top()->transition(*this, symbol);
+}
