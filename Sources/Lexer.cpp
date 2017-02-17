@@ -133,8 +133,13 @@ std::shared_ptr<Symbol> Lexer::peek()
 
 std::shared_ptr<Symbol> Lexer::get()
 {
-    getNextSymbol();
-    return currentSymbol;
+    if(currentSymbol == nullptr)
+    {
+        getNextSymbol();
+    }
+    std::shared_ptr<Symbol> retSymbol = currentSymbol;
+    currentSymbol = nullptr;
+    return retSymbol;
 }
 
 

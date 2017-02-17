@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Automate.h"
+#include "Config.h"
 
 Automate::Automate()
 {
@@ -14,8 +15,16 @@ Automate::~Automate()
 {
 }
 
-void Automate::lecture() {
+void Automate::lecture()
+{
+    evaluationFinished = false;
 
+    while(evaluationFinished == false)
+    {
+        std::shared_ptr<Symbol> nextSymbole;
+        nextSymbole = lexer.get();
+        states.top()->transition(*this, nextSymbole);
+    }
 }
 
 void Automate::popState(int number)
@@ -65,7 +74,14 @@ void Automate::pushSymbol(std::shared_ptr<Symbol> symbol)
 
 void Automate::accept()
 {
+    evaluationFinished = true;
     std::cout << "expression accepted, value is : " << std::endl;
+}
+
+void Automate::refuse()
+{
+    evaluationFinished = true;
+    while(*(lexer.get()) == ID_EOF)
 }
 
 void Automate::nextTransition()

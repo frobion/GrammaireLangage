@@ -27,9 +27,11 @@ public:
     void popSymbol(int number);
     void pushSymbol(std::shared_ptr<Symbol> symbol);
     void accept();
+    void refuse();
     void nextTransition();
 
 private:
+    bool evaluationFinished;
     Lexer lexer;
     std::stack<std::shared_ptr<Symbol>> symbols;
     std::stack<std::shared_ptr<State>> states;

@@ -29,11 +29,10 @@ void State9::transition(Automate &automate, std::shared_ptr<Symbol> nextSymbol)
         r4reduction(automate,nextSymbol);
         break;
     default:
+        automate.refuse();
         std::cerr << "State9: unknow Symbole ID: " << *nextSymbol << std::endl;
         break;
     }
-
-    automate.nextTransition();
 }
 
 
@@ -47,4 +46,6 @@ void State9::r4reduction(Automate &automate, std::shared_ptr<Symbol> nextSymbol)
     automate.pushSymbol(nextSymbol);
     //pop 3 state
     automate.popState(3);
+
+    automate.nextTransition();
 }

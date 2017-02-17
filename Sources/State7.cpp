@@ -43,6 +43,7 @@ void State7::transition(Automate &automate, std::shared_ptr<Symbol> symbol)
             automate.nextTransition();
             break;
         default:
+            automate.refuse();
             std::cerr << "In State7::transition, unexpected value of symbol : " << symbol->getId() << std::endl;
     }
 
