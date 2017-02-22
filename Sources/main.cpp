@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    cout << "enter an expression:" << endl;
+    cout << "Enter an expression: (or use Ctrl + C to quit)" << endl;
     //loop on lecture
     while(true)
     {
